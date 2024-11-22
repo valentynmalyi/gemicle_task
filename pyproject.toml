@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "gemicle-task"
+version = "0.1.0"
+description = "This is test task"
+authors = ["vmalyi <valentynmalyi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+djangorestframework = "^3"
+flake8 = "^7.1.1"
+flake8-import-order = "^0.18.2"
+pytest = "^8.3.3"
+pytest-django = "^4.9.0"
+flake8-quotes = "^3.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
