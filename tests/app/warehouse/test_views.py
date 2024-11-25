@@ -1,7 +1,7 @@
 from unittest.mock import Mock, patch
 
 from app.warehouse.serializers import TenantStatisticSerializer
-from app.warehouse.services import WarehouseService
+from app.warehouse.services import WarehouseStrategyService
 from app.warehouse.views import WarehouseStrategyView
 
 
@@ -14,7 +14,7 @@ class TestWarehouseStrategyView:
         view = WarehouseStrategyView()
         with (
             patch(f"{WarehouseStrategyView.__module__}.{TenantStatisticSerializer.__name__}", serializer_cls),
-            patch(f"{WarehouseStrategyView.__module__}.{WarehouseService.__name__}", service_cls),
+            patch(f"{WarehouseStrategyView.__module__}.{WarehouseStrategyService.__name__}", service_cls),
         ):
             response = view.post(request=request)
         serializer_cls.assert_called_once_with(data=request.data, many=True)

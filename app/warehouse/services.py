@@ -75,7 +75,7 @@ class WarehouseSizeSelector:
         return False
 
 
-class WarehouseService:
+class WarehouseStrategyService:
     def __init__(self, data: list[TenantStatistic]):
         data_processor = DataProcessor(data=data)
         self.warehouse_size_selector = WarehouseSizeSelector(data_processor=data_processor)

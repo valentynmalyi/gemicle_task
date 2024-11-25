@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .serializers import TenantStatisticSerializer
-from .services import WarehouseService
+from .services import WarehouseStrategyService
 
 
 class WarehouseStrategyView(APIView):
@@ -11,5 +11,5 @@ class WarehouseStrategyView(APIView):
     def post(self, request: Request, *args, **kwargs) -> Response:
         serializer = TenantStatisticSerializer(data=request.data, many=True)
         serializer.is_valid(raise_exception=True)
-        service = WarehouseService(data=serializer.validated_data)
+        service = WarehouseStrategyService(data=serializer.validated_data)
         return Response(data=service.get_data())

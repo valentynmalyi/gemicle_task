@@ -2,7 +2,7 @@ from collections import defaultdict
 from unittest.mock import Mock, patch
 
 from app.warehouse.models import WarehouseSizeMultiplierFactory
-from app.warehouse.services import DataProcessor, WarehouseService, WarehouseSizeSelector
+from app.warehouse.services import DataProcessor, WarehouseSizeSelector, WarehouseStrategyService
 
 
 class TestDataProcessor:
@@ -100,13 +100,13 @@ class TestWarehouseSizeSelector:
         assert actual is False
 
 
-class TestWarehouseService:
+class TestWarehouseStrategy:
     def test_init(self):
-        WarehouseService(data=[])
+        WarehouseStrategyService(data=[])
 
     def test_get_data(self):
         service = Mock()
-        actual = WarehouseService.get_data(service)
+        actual = WarehouseStrategyService.get_data(service)
         service.warehouse_size_selector.data_processor.process.assert_called_once()
         service.warehouse_size_selector.update_strategy()
         assert actual == service.warehouse_size_selector.strategy

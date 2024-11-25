@@ -38,11 +38,11 @@ poetry install
 1. **Run the development server:**
 
 ```bash
-DJANGO_SETTINGS_MODULE=core.settings python manage.py runserver localhost:8000
+python manage.py runserver localhost:8000
 ```
 
 2. Open your browser and navigate to `http://localhost:8000`.
-3. You can find data for post request in file `test_data.json`
+3. You can find data for post request in file `post_data_example.json`
 
 ## Running Flake8
 
